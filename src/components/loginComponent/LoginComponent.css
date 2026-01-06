@@ -1,0 +1,135 @@
+.loginComponentCard {
+  background-color: white;
+  padding: 25px;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.loginComponentCloseButton{
+  position: absolute;
+  right: 1.5em;
+  background-color: transparent;
+  border: none;
+  font-size: 1em;
+  color: var(--txtMain);
+}
+
+.loginComponentCloseButton:hover{
+  cursor: pointer;
+}
+
+/* --- Cabeçalho --- */
+.loginComponentHeader h2 {
+  color: var(--txtMain);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.loginComponentHeader p {
+  color: var(--grayDark);
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+/* --- Inputs --- */
+.loginComponentInputGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.loginComponentInputGroup label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--txtMain);
+  margin-bottom: 8px;
+}
+
+/* Container do input + ícone */
+.loginComponentInputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #F8F9FA;
+  border: 1px solid #E9ECEF;
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: border 0.3s;
+}
+
+.loginComponentInputWrapper:focus-within {
+  border-color: var(--logoColor);
+}
+
+.loginComponentInputIcon {
+  color: var(--grayDark);
+  font-size: 1.2rem;
+  margin-right: 12px;
+}
+
+.loginComponentInput {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  color: var(--txtMain);
+  font-family: var(--fontDefault);
+}
+
+.loginComponentInput::placeholder {
+  color: #adb5bd;
+}
+
+/* --- Link Esqueci Senha --- */
+.loginComponentLabelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.loginComponentForgotLink {
+  font-size: 0.8rem;
+  color: var(--detailColor);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* --- Botão --- */
+.loginComponentBtn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--logoColor);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  margin-top: 10px;
+}
+
+.loginComponentBtn:hover {
+  opacity: 0.9;
+}
+
+/* --- Rodapé --- */
+.loginComponentFooter {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: var(--grayDark);
+  border-top: 1px solid #F0F0F0;
+  padding-top: 20px;
+}
+
+.loginComponentRegisterLink {
+  color: var(--logoColor);
+  text-decoration: none;
+  font-weight: 700;
+}

@@ -1,0 +1,71 @@
+.homeBackground {
+    background-color: var(--mainBackgroundColor);
+    /* background-color: rebeccapurple; */
+    height: 100vh;
+    width: 100%;
+    font-family: var(--fontDefault);
+    overflow: hidden;
+}
+
+.homeHeroDiv{
+    position: relative;
+    top: 5em;
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 3em 0em 0em 6em;
+    
+}
+
+.homeHeroDivLeft{
+    /* background-color: aqua; */
+    margin-top: 1em;
+    margin-left: 1.3em;
+    padding-left: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.homeHeroTitle{
+    font-size: 4em;
+    line-height: 1;
+    color: var(--txtMain);
+}
+
+.homeHeroSubTitle{
+    font-size: 1.2em;
+    color: var(--txt);
+}
+
+.homeDivButtons{
+    /* background-color: red; */
+    margin-top: 2em;
+    display: flex;
+    gap: 1em;
+}
+.homeRegisterButton{
+    background-color: var(--txtMain);
+    color: var(--txtContrast);
+    padding: 1em 2em;
+    border-radius: 2em;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.homeRegisterButton:hover{
+    cursor: pointer;
+}
+
+.homeLoginButton{
+    padding: 1em 2em;
+    border-radius: 2em;
+    font-size: 1em;
+    background-color: transparent;
+    color: var(--txtMain);
+    border: 2px solid var(--txtMain);
+}
+
+.homeLoginButton:hover{
+    cursor: pointer;
+}

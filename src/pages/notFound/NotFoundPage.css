@@ -1,0 +1,113 @@
+
+.notFoundComponentContainer {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--mainBackgroundColor);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fontDefault);
+}
+
+.notFoundComponentMain {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 10% 10% 10%;
+    z-index: 1; 
+}
+
+.notFoundComponentContent {
+    max-width: 500px;
+    text-align: left;
+}
+
+.notFoundComponentTitle {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--logoColor); 
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.notFoundComponentSubtitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--txtMain);
+    margin-bottom: 20px;
+}
+
+.notFoundComponentText {
+    font-size: 1.1rem;
+    color: var(--grayDark);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.notFoundComponentBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background-color: var(--logoColor);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+.notFoundComponentBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.notFoundComponentImageWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.notFoundComponentImageWrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+.notFoundComponentPlaceholder {
+    font-size: 12rem;
+    font-weight: 900;
+    color: var(--txt);
+    opacity: 0.5;
+    user-select: none;
+    text-shadow: 10px 10px 0px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 900px) {
+    .notFoundComponentMain {
+        flex-direction: column-reverse; 
+        justify-content: center;
+        text-align: center;
+        padding-top: 80px;
+    }
+
+    .notFoundComponentContent {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .notFoundComponentImageWrapper {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .notFoundComponentTitle {
+        font-size: 3rem;
+    }
+    
+    .notFoundComponentPlaceholder {
+        font-size: 8rem;
+    }
+}

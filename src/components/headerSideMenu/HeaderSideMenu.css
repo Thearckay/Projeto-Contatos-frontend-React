@@ -1,0 +1,71 @@
+.headerSideMenuBackground{
+    background-color: var(--secondBackgroundColor);
+    /* background-color: rebeccapurple; */
+    font-family: var(--fontDefault);
+    position: absolute;
+    right: 0;
+    width: 25%;
+    padding: 1em;
+    height: 100vh;
+    z-index: 10;
+}
+
+.headerSideMenuClosed{
+    background-color: var(--secondBackgroundColor);
+    font-family: var(--fontDefault);
+    position: absolute;
+    right: -25%;
+    width: 25%;
+    padding: 1em;
+    height: 100vh;
+    z-index: 10;
+}
+
+.headerSideMenuDivOne{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerSideMenuTitle{
+    font-weight: 700;
+    font-size: 1.4em;
+    color: var(--txtMain);
+}
+
+.headerSideMenuCloseButton{
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+}
+.headerSideMenuCloseButton:hover{
+    cursor: pointer;
+}
+
+.headerSideMenuButtonsList{
+    list-style: none;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    /* background-color: aqua; */
+}
+
+.headerSideMenuButtonsList li {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin-left: 1em;
+}
+
+.headerSideMenuIcons{
+    color: var(--txtMain);
+    font-size: 1.3em;
+}
+
+.headerSideMenuListItem{
+    text-decoration: none;
+    font-size: 1.1em;
+    color: var(--txtMain);
+}

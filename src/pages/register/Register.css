@@ -1,0 +1,26 @@
+.registerBackground{
+    background-color: var(--mainBackgroundColor);
+    height: 100vh;
+    width: 100%;
+}
+
+.registerMainSection{
+    /* background-color: aqua; */
+    height: 100%;
+    width: 100%;
+    padding: 4em 0 0 5em;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.resgisterComponentDiv{
+    /* background-color: red; */
+    padding-left: 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.resgisterHeroDiv{
+    /* background-color: red; */
+    padding-top: 5em;
+}

@@ -1,0 +1,51 @@
+.loginBackground{
+    background-color: var(--mainBackgroundColor);
+    height: 100vh;
+    font-family: var(--fontDefault);
+    overflow-x: hidden;
+}
+
+.loginHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em 1em;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.loginHeaderDivButton{
+    display: flex;
+    gap: 1em;
+}
+
+.loginHeaderDivButton p {
+    color: var(--txt);
+    font-size: 15px;
+}
+
+.loginHeaderRegisterButton{
+    font-size: 1em;
+    text-decoration: none;
+    color: var(--txtMain);
+    font-weight: 500;
+}
+
+.loginBlurSection {
+    filter: blur(15px);
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.loginComponentDiv{
+    /* background-color: aqua; */
+    height: inherit;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

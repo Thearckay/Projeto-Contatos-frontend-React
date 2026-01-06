@@ -1,0 +1,61 @@
+.headerBackground{
+    /* background-color: red; */
+    padding: 0.5em 1em 0.5em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--fontDefault);
+    position: absolute;
+    width: 100%;
+}
+
+.headerMenuEl{
+    display: flex;
+    gap: 4em;
+    list-style: none;
+}
+
+.headerListButton{
+    font-size: 1.4em;
+    border: none;
+    background-color: transparent;
+    color: var(--logoColor);
+}
+
+.headerListButton:hover{
+    cursor: pointer;
+}
+
+.headerButtons{
+    text-decoration: none ;
+    color: var(--txt);
+}
+
+
+.headerButtons {
+    text-decoration: none;
+    color: var(--txt);
+    font-weight: 500;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerButtons::after {
+    content: ''; 
+    width: 6px;  
+    height: 6px;
+    background-color: var(--logoColor); 
+    border-radius: 50%; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.headerButtons.active {
+    color: var(--txtMain);
+}
+
+.headerButtons.active::after {
+    opacity: 1;
+}
