@@ -1,0 +1,32 @@
+.notification {
+    background-color: var(--secondBackgroundColor);
+    position: absolute;
+    padding: 1em;
+    border-radius: 10px;
+    display: flex;
+    min-width: 18%;
+    font-family: var(--fontDefault);
+    box-shadow: -4px 1px var(--logoColor);
+    z-index: 100;
+}
+
+.notificationIcon{
+    font-size: 1.4em;
+}
+
+.notificationMessageDiv{
+    line-height: 1.5em;
+    color: var(--logoColor);
+}
+
+.notificationTitle{
+    font-size: 1.4em;
+}
+
+.notificationOff{
+    right: -20%;
+}
+
+.notificationOn{
+    right: 0.5em;
+}

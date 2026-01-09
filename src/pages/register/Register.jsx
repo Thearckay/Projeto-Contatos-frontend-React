@@ -5,6 +5,7 @@ import RegisterComponent from '../../components/registerComponent/RegisterCompon
 import HeroImage from '../../components/heroImage/HeroImage'
 import Waves from '../../components/waves/Waves'
 import HeaderSideMenu from '../../components/headerSideMenu/HeaderSideMenu'
+import Notification from '../../components/notification/Notification'
 
 const Register = () => {
 
@@ -13,18 +14,20 @@ const Register = () => {
     const handleMenu = () => {
       setMenu(!isMenu)
     }
+
   return (
     <div className='registerBackground'>
       <Header handleMenu={handleMenu} />
       <HeaderSideMenu handleMenu={handleMenu} isMenu={isMenu} />
       <section className='registerMainSection'>
         <div className='resgisterComponentDiv'>
-          <RegisterComponent />
+          <RegisterComponent  />
         </div>
         <div className='resgisterHeroDiv'>
           <HeroImage />
         </div>
         <Waves />
+        <Notification />
       </section>
     </div>
   )

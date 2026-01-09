@@ -1,8 +1,55 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './RegisterComponent.css';
+import Notification from '../notification/Notification';
 
 const RegisterComponent = () => {
+
+  const navigate = useNavigate()
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const formData = new FormData(e.target)
+    const data = Object.fromEntries(formData)
+
+    if (data.password !== data.confirmPassword) {
+      alert("As senhas não conferem!");
+      return;
+    }
+
+    delete data.confirmPassword;
+
+    try {
+      const response = await fetch('http://localhost:8080/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+
+        console.log(result)
+        navigate('/login')
+
+
+      } else {
+        alert("Erro: " + result.message);
+      }
+
+
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      alert("Erro ao conectar com o servidor.");
+    }
+
+  }
+
   return (
     <div className="registerComponentCard">
       
@@ -11,9 +58,8 @@ const RegisterComponent = () => {
         <p>Comece a organizar seus contatos hoje mesmo.</p>
       </div>
 
-      <form className="registerComponentForm">
+      <form className="registerComponentForm" onSubmit={handleSubmit}>
         
-        {/* Nome Completo */}
         <div className="registerComponentInputGroup">
           <label className="registerComponentLabel" htmlFor="name">Nome Completo</label>
           <div className="registerComponentInputWrapper">
@@ -21,27 +67,27 @@ const RegisterComponent = () => {
             <input 
               className="registerComponentInput"
               type="text" 
-              id="name" 
+              name='fullName'
+              id="fullName" 
               placeholder="Ex: João Silva" 
             />
           </div>
         </div>
 
-        {/* Email */}
         <div className="registerComponentInputGroup">
           <label className="registerComponentLabel" htmlFor="email">Email</label>
           <div className="registerComponentInputWrapper">
             <i className="bi bi-envelope registerComponentInputIcon"></i>
             <input 
               className="registerComponentInput"
-              type="email" 
+              type="email"
+              name='email' 
               id="email" 
               placeholder="seu@email.com" 
             />
           </div>
         </div>
 
-        {/* LINHA DUPLA: Telefone e Data */}
         <div className="registerComponentRow">
           <div className="registerComponentInputGroup">
             <label className="registerComponentLabel" htmlFor="phone">Número de Telefone</label>
@@ -49,7 +95,8 @@ const RegisterComponent = () => {
               <i className="bi bi-telephone registerComponentInputIcon"></i>
               <input 
                 className="registerComponentInput"
-                type="tel" 
+                type="tel"
+                name='phoneNumber'
                 id="phone" 
                 placeholder="(11) 99999-9999" 
               />
@@ -62,8 +109,9 @@ const RegisterComponent = () => {
               <i className="bi bi-cake2 registerComponentInputIcon"></i>
               <input 
                 className="registerComponentInput"
-                type="text" // Usei text pra simular o placeholder, ou use type="date"
-                onFocus={(e) => e.target.type = 'date'} // Truque pra mostrar placeholder
+                type="text" 
+                name='birthDate'
+                onFocus={(e) => e.target.type = 'date'} 
                 onBlur={(e) => e.target.type = 'text'}
                 id="birthdate" 
                 placeholder="mm/dd/yyyy" 
@@ -72,7 +120,6 @@ const RegisterComponent = () => {
           </div>
         </div>
 
-        {/* Profissão */}
         <div className="registerComponentInputGroup">
           <label className="registerComponentLabel" htmlFor="job">Profissão</label>
           <div className="registerComponentInputWrapper">
@@ -80,13 +127,13 @@ const RegisterComponent = () => {
             <input 
               className="registerComponentInput"
               type="text" 
+              name='occupation'
               id="job" 
               placeholder="Ex: Desenvolvedor" 
             />
           </div>
         </div>
 
-        {/* LINHA DUPLA: Senhas */}
         <div className="registerComponentRow">
           <div className="registerComponentInputGroup">
             <label className="registerComponentLabel" htmlFor="pass">Criar Senha</label>
@@ -94,6 +141,7 @@ const RegisterComponent = () => {
               <i className="bi bi-lock registerComponentInputIcon"></i>
               <input 
                 className="registerComponentInput"
+                name='password'
                 type="password" 
                 id="pass" 
                 placeholder="........" 
@@ -104,11 +152,11 @@ const RegisterComponent = () => {
           <div className="registerComponentInputGroup">
             <label className="registerComponentLabel" htmlFor="confirmPass">Confirmar Senha</label>
             <div className="registerComponentInputWrapper">
-              {/* Ícone de 'refresh' ou 'check' conforme a imagem */}
               <i className="bi bi-arrow-repeat registerComponentInputIcon"></i>
               <input 
                 className="registerComponentInput"
                 type="password" 
+                name='confirmPassword'
                 id="confirmPass" 
                 placeholder="........" 
               />
@@ -116,7 +164,6 @@ const RegisterComponent = () => {
           </div>
         </div>
 
-        {/* Botão Cadastrar */}
         <button type="submit" className="registerComponentBtn">
           Cadastrar <i className="bi bi-arrow-right"></i>
         </button>
@@ -128,9 +175,8 @@ const RegisterComponent = () => {
            <i className="bi bi-arrow-left"></i> Já tenho uma conta
         </Link>
       </div>
-
     </div>
   );
-};
+}
 
 export default RegisterComponent;

@@ -3,6 +3,27 @@ import { Link } from 'react-router-dom';
 import './LoginComponent.css';
 
 const LoginComponent = () => {
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+
+    const formData = new FormData(e.target)
+    const data = Object.fromEntries(formData)
+
+    const response = await fetch('http://localhost:8080/user/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify(data)
+    }
+    )
+
+    const result = await response.json()
+
+    console.log(result)
+  }
+
   return (
     <div className="loginComponentCard">
       <Link to={'/'} end className='loginComponentCloseButton'><i className="bi bi-x-lg "></i></Link>
@@ -11,7 +32,7 @@ const LoginComponent = () => {
         <p>Insira suas credenciais para acessar sua agenda.</p>
       </div>
 
-      <form className="loginComponentForm">
+      <form className="loginComponentForm" onSubmit={handleLogin} id='loginForm'>
         
         {/* Campo Email */}
         <div className="loginComponentInputGroup">
@@ -22,6 +43,7 @@ const LoginComponent = () => {
               className="loginComponentInput"
               type="email" 
               id="email" 
+              name='email'
               placeholder="seu@email.com" 
             />
           </div>
@@ -38,7 +60,8 @@ const LoginComponent = () => {
             <input 
               className="loginComponentInput"
               type="password" 
-              id="password" 
+              id="password"
+              name='password'
               placeholder="........" 
             />
           </div>
