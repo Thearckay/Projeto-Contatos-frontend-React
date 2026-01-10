@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './RegisterComponent.css';
 import Notification from '../notification/Notification';
 
-const RegisterComponent = () => {
+const RegisterComponent = ({notifiyer}) => {
 
   const navigate = useNavigate()
 
@@ -15,7 +15,7 @@ const RegisterComponent = () => {
     const data = Object.fromEntries(formData)
 
     if (data.password !== data.confirmPassword) {
-      alert("As senhas não conferem!");
+      notifiyer({message: 'As senhas não conferem', title: 'Erro'})
       return;
     }
 
@@ -31,21 +31,21 @@ const RegisterComponent = () => {
       });
 
       const result = await response.json();
-
+      notifiyer(result)
       if (response.ok) {
 
         console.log(result)
-        navigate('/login')
 
+        setTimeout(()=>{
+          navigate('/login')
+        }, 4000)
 
-      } else {
-        alert("Erro: " + result.message);
-      }
-
-
+      } 
+      
     } catch (error) {
       console.error("Erro na requisição:", error);
-      alert("Erro ao conectar com o servidor.");
+      //alert("Erro ao conectar com o servidor.");
+      notifiyer({message: "Erro ao conectar com o servidor", title: "Erro", icon: "bi-exclamation-triangle-fill"})
     }
 
   }

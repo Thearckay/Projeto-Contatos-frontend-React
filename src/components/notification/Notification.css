@@ -1,17 +1,22 @@
 .notification {
-    background-color: var(--secondBackgroundColor);
-    position: absolute;
+  background-color: var(--secondBackgroundColor);
+    position: fixed; 
+    top: 4em; 
     padding: 1em;
     border-radius: 10px;
     display: flex;
     min-width: 18%;
     font-family: var(--fontDefault);
     box-shadow: -4px 1px var(--logoColor);
-    z-index: 100;
+    z-index: 300;
 }
 
 .notificationIcon{
     font-size: 1.4em;
+    color: var(--logoColor);
+    margin-right: .5em;
+    margin-top: .4em;
+    display: flex;
 }
 
 .notificationMessageDiv{
@@ -24,9 +29,11 @@
 }
 
 .notificationOff{
+    transition: right .5s linear;
     right: -20%;
 }
 
 .notificationOn{
+    transition: right .1s linear;
     right: 0.5em;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LoginComponent.css';
 
-const LoginComponent = () => {
+const LoginComponent = ({notifier}) => {
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -20,8 +20,7 @@ const LoginComponent = () => {
     )
 
     const result = await response.json()
-
-    console.log(result)
+    notifier(result)
   }
 
   return (
