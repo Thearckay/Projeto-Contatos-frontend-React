@@ -1,13 +1,13 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client' // <--- O segredo tá aqui
+import ReactDOM from 'react-dom/client' 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './index.css' // Se tiver css global
+import './index.css' 
 import Home from './pages/home/Home.jsx'
 import Login from './pages/login/Login.jsx'
 import Register from './pages/register/Register.jsx'
 import NotFoundPage from './pages/notFound/NotFoundPage.jsx'
 import Teste from './pages/Teste.jsx'
-// Suas páginas
+import Dashboard from './pages/app/dashboard/Dashboard.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '*',
     element: <NotFoundPage />
+  },
+  {
+    path: '/app/dashboard',
+    element: <Dashboard />
   },
   {
     path: 'test',

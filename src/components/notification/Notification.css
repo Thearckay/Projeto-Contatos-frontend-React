@@ -9,13 +9,13 @@
     font-family: var(--fontDefault);
     box-shadow: -4px 1px var(--logoColor);
     z-index: 300;
+    align-items: center;
 }
 
 .notificationIcon{
     font-size: 1.4em;
     color: var(--logoColor);
     margin-right: .5em;
-    margin-top: .4em;
     display: flex;
 }
 
@@ -30,7 +30,7 @@
 
 .notificationOff{
     transition: right .5s linear;
-    right: -20%;
+    right: -40%;
 }
 
 .notificationOn{

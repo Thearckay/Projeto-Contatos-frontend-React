@@ -1,12 +1,19 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './RegisterComponent.css';
-import Notification from '../notification/Notification';
 
-const RegisterComponent = ({notifiyer}) => {
+const RegisterComponent = ({ notifiyer }) => {
 
   const navigate = useNavigate()
 
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  const isValidPhone = (phone) => {
+    const numbers = phone.replace(/\D/g, '');
+    return numbers.length >= 10;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -14,12 +21,32 @@ const RegisterComponent = ({notifiyer}) => {
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData)
 
+    if (!data.fullName || data.fullName.trim().length < 3) {
+      notifiyer({ message: 'Digite um nome completo válido.', title: 'Erro no Nome', type: 'error', icon: 'bi-person-x-fill' });
+      return;
+    }
+
+    if (!isValidEmail(data.email)) {
+      notifiyer({ message: 'O formato do e-mail está incorreto.', title: 'Erro no Email', type: 'error', icon: 'bi-envelope-x-fill' });
+      return;
+    }
+
+    if (data.password.length < 6) {
+        notifiyer({ message: 'A senha deve ter no mínimo 6 caracteres.', title: 'Senha Fraca', type: 'error', icon: 'bi-shield-lock-fill' });
+        return;
+    }
+
     if (data.password !== data.confirmPassword) {
-      notifiyer({message: 'As senhas não conferem', title: 'Erro'})
+      notifiyer({ message: 'As senhas não conferem.', title: 'Erro na Senha', type: 'error', icon: 'bi-key-fill' });
       return;
     }
 
     delete data.confirmPassword;
+
+    if (!data.birthDate) {
+      notifiyer({ message: 'Selecione sua data de nascimento.', title: 'Data Inválida', type: 'error', icon: 'bi-calendar-x-fill' });
+      return;
+    }
 
     try {
       const response = await fetch('http://localhost:8080/user/register', {
@@ -31,23 +58,18 @@ const RegisterComponent = ({notifiyer}) => {
       });
 
       const result = await response.json();
-      notifiyer(result)
+      notifiyer(result);
+
       if (response.ok) {
-
-        console.log(result)
-
-        setTimeout(()=>{
+        setTimeout(() => {
           navigate('/login')
         }, 4000)
-
       } 
       
     } catch (error) {
-      console.error("Erro na requisição:", error);
-      //alert("Erro ao conectar com o servidor.");
-      notifiyer({message: "Erro ao conectar com o servidor", title: "Erro", icon: "bi-exclamation-triangle-fill"})
+      console.error(error);
+      notifiyer({ message: "Não foi possível conectar ao servidor.", title: "Erro de Conexão", type: "error", icon: "bi-wifi-off" })
     }
-
   }
 
   return (
@@ -90,7 +112,7 @@ const RegisterComponent = ({notifiyer}) => {
 
         <div className="registerComponentRow">
           <div className="registerComponentInputGroup">
-            <label className="registerComponentLabel" htmlFor="phone">Número de Telefone</label>
+            <label className="registerComponentLabel" htmlFor="phone">Telefone</label>
             <div className="registerComponentInputWrapper">
               <i className="bi bi-telephone registerComponentInputIcon"></i>
               <input 
@@ -104,17 +126,16 @@ const RegisterComponent = ({notifiyer}) => {
           </div>
 
           <div className="registerComponentInputGroup">
-            <label className="registerComponentLabel" htmlFor="birthdate">Data de Aniversário</label>
+            <label className="registerComponentLabel" htmlFor="birthdate">Nascimento</label>
             <div className="registerComponentInputWrapper">
               <i className="bi bi-cake2 registerComponentInputIcon"></i>
               <input 
                 className="registerComponentInput"
-                type="text" 
+                type="date"  
                 name='birthDate'
-                onFocus={(e) => e.target.type = 'date'} 
-                onBlur={(e) => e.target.type = 'text'}
                 id="birthdate" 
-                placeholder="mm/dd/yyyy" 
+                required
+                style={{ color: '#555' }}
               />
             </div>
           </div>
@@ -136,7 +157,7 @@ const RegisterComponent = ({notifiyer}) => {
 
         <div className="registerComponentRow">
           <div className="registerComponentInputGroup">
-            <label className="registerComponentLabel" htmlFor="pass">Criar Senha</label>
+            <label className="registerComponentLabel" htmlFor="pass">Senha</label>
             <div className="registerComponentInputWrapper">
               <i className="bi bi-lock registerComponentInputIcon"></i>
               <input 
@@ -150,7 +171,7 @@ const RegisterComponent = ({notifiyer}) => {
           </div>
 
           <div className="registerComponentInputGroup">
-            <label className="registerComponentLabel" htmlFor="confirmPass">Confirmar Senha</label>
+            <label className="registerComponentLabel" htmlFor="confirmPass">Confirmar</label>
             <div className="registerComponentInputWrapper">
               <i className="bi bi-arrow-repeat registerComponentInputIcon"></i>
               <input 
@@ -172,7 +193,7 @@ const RegisterComponent = ({notifiyer}) => {
 
       <div className="registerComponentFooter">
         <Link to="/login" className="registerComponentLink">
-           <i className="bi bi-arrow-left"></i> Já tenho uma conta
+            <i className="bi bi-arrow-left"></i> Já tenho uma conta
         </Link>
       </div>
     </div>

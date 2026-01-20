@@ -22,7 +22,10 @@ body {
 
   --mainBackgroundColor: #D9D9D9;
   --secondBackgroundColor: white;
+  --thirdBackgroundColor: #f0efef;
   --fontDefault: 'poppins';
+
+  --boxShadowOneEffect: 1px 1px 5px rgb(185, 185, 185);
 
 
   --bgLight: #D9D9D9; 

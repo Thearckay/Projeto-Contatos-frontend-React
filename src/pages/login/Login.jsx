@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Logo from '../../components/logo/Logo'
 import './Login.css'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import HomeComponent from '../../components/homeComponent/HomeComponent'
 import Waves from '../../components/waves/Waves'
 import LoginComponent from '../../components/loginComponent/LoginComponent'
@@ -10,15 +10,31 @@ import Notification from '../../components/notification/Notification'
 
 const Login = () => {
 
-  const [notification, setNotification] = useState({message: '', title: '', icon: ''})
+  const [notification, setNotification] = useState({
+    status: 0,
+    message: '',
+    data: {},
+    erros: []
+  })
 
   const notifier = (json) => {
-    setNotification({message: json.message, title: json.title, icon: json.icon})
-    console.log("O objeto subiu! "+json)
+    setNotification({
+      status: json.status,
+      message: json.message,
+      data: json.data,
+      erros: json.erros
+
+    })
+    console.log("O objeto subiu! "+json.status)
   }
 
   const closeNotification = () =>{
-    setNotification({message:'', title:'', icon:''})
+    setNotification({
+      status: 0,
+      message: '',
+      data: {},
+      erros: []
+    })
   }
 
   return (

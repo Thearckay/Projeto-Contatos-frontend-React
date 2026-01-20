@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginComponent.css';
 
 const LoginComponent = ({notifier}) => {
+
+  const navigate = useNavigate()
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -20,6 +22,14 @@ const LoginComponent = ({notifier}) => {
     )
 
     const result = await response.json()
+    console.log("O handle do login foi ativado")
+
+    if (result.status === 200){
+      setTimeout(()=>{
+        navigate('/app/dashboard')
+      },2500)
+    }
+
     notifier(result)
   }
 

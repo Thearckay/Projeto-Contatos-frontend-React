@@ -1,0 +1,50 @@
+.recentActivities{
+    background-color: var(--secondBackgroundColor) ;
+    width: 50%;
+    padding: 1rem;
+    margin-left: 1rem;
+    border-radius: 1rem;
+}
+
+.recentActivitiesHeader{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+}
+
+.recentActivitiesHeader h3 {
+    display: flex;
+    gap: 10px;
+    color: var(--txtMain);
+}
+
+.recentActivitiesSeeAllBtn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--txtMain);
+} 
+
+.recentActivitiesCard{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    /* background-color: aqua; */
+    line-height: 1.1;
+    margin-top: 1rem;
+}
+
+.recentActivitiesIcon{
+    font-size: 1.5rem;
+    color: var(--txtMain); 
+    background-color: #eef2ff;
+    padding: 0.8rem;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; 
+    height: 50px;
+}

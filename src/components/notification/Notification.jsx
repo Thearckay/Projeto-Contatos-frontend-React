@@ -4,10 +4,14 @@ import './Notification.css'
 const Notification = ({notification, onClose}) => {
 
   const [showClass, setShowClass] = useState(false)
+  const icon = notification.status === 200 
+      ? "bi-check-circle-fill" 
+      : "bi-exclamation-triangle-fill"
 
   useEffect(() =>{
     if (!notification && !notification.message) return 
 
+     
     setShowClass(true)
 
     const timer = setTimeout(() =>{
@@ -26,9 +30,9 @@ const Notification = ({notification, onClose}) => {
 
   return (
     <div className={`notification ${showClass? 'notificationOn' : 'notificationOff'}`}>
-        <i className={`bi ${notification.icon} notificationIcon`}></i>
+        <i className={`bi ${icon} notificationIcon`}></i>
         <div className='notificationMessageDiv'>
-            <h1 className='notificationTitle'>{notification.title}</h1>
+            <h1 className='notificationTitle'>{''}</h1>
             <p>{notification.message}</p>
         </div>
     </div>

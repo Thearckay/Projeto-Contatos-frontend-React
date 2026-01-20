@@ -1,0 +1,59 @@
+.contactsWidgets{
+    /* background-color: aqua; */
+    width: 100%;
+    display: flex;
+    padding: .4em 1em 1em 2em;
+    justify-content: space-around;
+    gap: 2em;
+}
+
+.contactsWidgetsCard{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondBackgroundColor);
+    padding: 1em;
+    gap: 9px;
+    border-radius: 1em;
+    height: 120px;
+    box-shadow: var(--boxShadowOneEffect);
+    max-width: 40%;
+}
+
+.contactsWidgetsCardDiv {
+    line-height: 1.2;
+}
+
+.contactsWidgetsCardIcon {
+    font-size: 2em;
+    background-color: lightblue;
+    color: var(--txtMain);
+    display: flex;
+    align-items: center;
+    padding: .3em;
+    border-radius: 10px;
+    height: 80%;
+}
+
+.contactsWidgetFavoriteIcon{
+    background-color: rgb(255, 255, 225);
+    color: yellow;
+}
+
+.contactsWidgetNewContacts{
+    background-color: rgb(196, 244, 196);
+    color: green;
+}
+
+.contactsWidgetsCardTitle {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--txt);
+}
+
+.contactsWidgetsCardNumber{
+    font-size: 1.9em;
+    font-weight: 600;
+    color: var(--txtMain);
+}
+
