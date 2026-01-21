@@ -1,0 +1,12 @@
+.organizeContactsWidgets{
+    background-color: var(--txtMain);
+    color: var(--txtContrast);
+    margin-left: 3em; /*remover isso depois*/
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 20%;
+}
+
+.organizeContactsWidgetIcon{
+    font-size: 4rem;
+}

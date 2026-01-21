@@ -2,8 +2,9 @@
     font-family: var(--fontDefault);
     background-color: red;
     display: flex;
-    height: 100vh;
+    height: 100%;
     position: relative;
+    padding-left: 3em;
 }
 .dashboard .dashboardMainSection {
     width: 100%;

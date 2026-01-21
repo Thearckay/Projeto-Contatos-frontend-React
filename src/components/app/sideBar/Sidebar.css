@@ -2,7 +2,7 @@
     --sidebar-width-collapsed: 60px;
     --sidebar-width-expanded: 260px;
 
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;

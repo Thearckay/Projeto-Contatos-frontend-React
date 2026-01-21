@@ -19,6 +19,30 @@ const RecentActivities = () => {
           </div>
           <span>quando</span>
         </div>
+        <div className='recentActivitiesCard'>
+          <i className="bi bi-envelope-fill recentActivitiesIcon"></i>
+          <div>
+            <h4>Titulo da atividade Recente</h4>
+            <p>Assunto da atividade recente</p>
+          </div>
+          <span>quando</span>
+        </div>
+        <div className='recentActivitiesCard'>
+          <i className="bi bi-envelope-fill recentActivitiesIcon"></i>
+          <div>
+            <h4>Titulo da atividade Recente</h4>
+            <p>Assunto da atividade recente</p>
+          </div>
+          <span>quando</span>
+        </div>
+        <div className='recentActivitiesCard'>
+          <i className="bi bi-envelope-fill recentActivitiesIcon"></i>
+          <div>
+            <h4>Titulo da atividade Recente</h4>
+            <p>Assunto da atividade recente</p>
+          </div>
+          <span>quando</span>
+        </div>
     </section>
   )
 }

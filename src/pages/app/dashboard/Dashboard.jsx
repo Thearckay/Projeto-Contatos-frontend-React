@@ -5,6 +5,7 @@ import DashboardHeader from '../../../components/app/dashboardHeader/DashboardHe
 import ContactsWidgets from '../../../components/app/contactsWidgets/ContactsWidgets'
 import FavoriteContacts from '../../../components/app/favoriteContacts/FavoriteContacts'
 import RecentActivities from '../../../components/app/recentActivities/RecentActivities'
+import OrganizeContactsWidgets from '../../../components/app/organizeContactsWidgets/OrganizeContactsWidgets'
 
 
 const Dashboard = () => {
@@ -21,6 +22,7 @@ const Dashboard = () => {
           <ContactsWidgets />
           <FavoriteContacts />
           <RecentActivities />
+          <OrganizeContactsWidgets />
         </section>
       </main>
     </div>
