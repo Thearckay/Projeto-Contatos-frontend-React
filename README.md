@@ -78,4 +78,4 @@ Atualmente o projeto segue em desenvolvimento com os sistemas internos da aplica
 
 Gostou do projeto ou gostaria de entrar em contato? Há um projetinho antigo mais funcional, onde pode encontrar meus contatos:
 
-[Click aqui para entrar em Contato)]("https://thearckay.github.io/linktree/")
+[Click aqui para entrar em Contato ;)](https://thearckay.github.io/linktree/)
