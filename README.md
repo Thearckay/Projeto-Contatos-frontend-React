@@ -68,7 +68,7 @@ Até a publicação deste README, as telas que estão em funcionamento são as t
 
 Todas essas telas já estão em funcionamento em conjunto com o backend Spring, que pode ser visto no seguinte repositório:
 
-[Repositório Backend Spring Boot](https://github.com/Thearckay/Projetos-Contatos-Backend-Spring-Boot)
+[Repositório Backend Spring Boot](https://github.com/Thearckay/Agenda-contatos-Spring-JPA)
 
 Atualmente o projeto segue em desenvolvimento com os sistemas internos da aplicação: (Design de exemplo)
 
