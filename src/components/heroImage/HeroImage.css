@@ -137,3 +137,18 @@
   font-size: 1.2rem;
   color: white;
 }
+
+@media (max-width: 1049px){
+  .hero-composition{
+    right: 1em;
+  }
+}
+
+@media(max-width: 614px){
+  .hero-composition{
+    transform: scale(.8);
+    margin: 0;
+  }
+
+ 
+}

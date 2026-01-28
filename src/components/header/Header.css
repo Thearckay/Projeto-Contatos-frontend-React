@@ -59,3 +59,17 @@
 .headerButtons.active::after {
     opacity: 1;
 }
+
+
+@media(max-width: 520px ){
+    .headerMenuEl{
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    div.headerBackground{
+        /* background-color: red; */
+        height: 7%;
+    }
+}

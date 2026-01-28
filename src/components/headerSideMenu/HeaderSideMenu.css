@@ -2,12 +2,13 @@
     background-color: var(--secondBackgroundColor);
     /* background-color: rebeccapurple; */
     font-family: var(--fontDefault);
-    position: absolute;
+    position: fixed;
     right: 0;
     width: 25%;
     padding: 1em;
     height: 100vh;
     z-index: 10;
+    transition: right .3s;
 }
 
 .headerSideMenuClosed{
@@ -19,6 +20,7 @@
     padding: 1em;
     height: 100vh;
     z-index: 10;
+    transition: right .3s ease-out;
 }
 
 .headerSideMenuDivOne{
@@ -68,4 +70,19 @@
     text-decoration: none;
     font-size: 1.1em;
     color: var(--txtMain);
+}
+
+@media (max-width: 800px){
+    .headerSideMenuBackground{
+        width: 40%;
+    }
+    .headerSideMenuClosed{
+        right: -40%;
+    }
+}
+
+@media (max-width: 400px) {
+    div.headerSideMenuBackground{
+        width: 60%;
+    }
 }
