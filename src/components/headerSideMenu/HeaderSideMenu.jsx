@@ -17,6 +17,18 @@ const HeaderSideMenu = ({isMenu, handleMenu}) => {
         </div>
         <ul className='headerSideMenuButtonsList'>
           <li>
+            <i className="bi bi-house-fill headerSideMenuIcons"></i>
+            <Link to={"/"} className='headerSideMenuListItem'>Inicio</Link>
+          </li>
+          <li>
+            <i className="bi bi-box-arrow-in-left headerSideMenuIcons"></i>
+            <Link to={"/login"} className='headerSideMenuListItem'>Login</Link>
+          </li>
+          <li>
+            <i className="bi bi-person-vcard-fill headerSideMenuIcons"></i>
+            <Link to={"/register"} className='headerSideMenuListItem'>Registrar-se</Link>
+          </li>
+          <li>
             <i className="bi bi-person-fill headerSideMenuIcons"></i>
             <a className='headerSideMenuListItem' href='https://www.linkedin.com/in/kayck-arcanjo/' target='_blank'>Desenvolvedor</a>
           </li>
