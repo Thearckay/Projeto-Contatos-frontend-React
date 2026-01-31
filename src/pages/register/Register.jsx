@@ -31,7 +31,9 @@ const Register = () => {
 
   return (
     <div className='registerBackground'>
-      <Header handleMenu={handleMenu} />
+      <div className='registerHeaderDiv'>
+        <Header handleMenu={handleMenu} />
+      </div>
       <HeaderSideMenu handleMenu={handleMenu} isMenu={isMenu} />
       <section className='registerMainSection'>
         <div className='resgisterComponentDiv'>

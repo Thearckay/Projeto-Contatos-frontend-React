@@ -1,6 +1,6 @@
 .loginBackground{
     background-color: var(--mainBackgroundColor);
-    height: 100vh;
+    height: 100dvh;
     font-family: var(--fontDefault);
     overflow-x: hidden;
     position: relative;
@@ -36,7 +36,7 @@
 .loginBlurSection {
     filter: blur(15px);
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     pointer-events: none;
 }
 
@@ -51,4 +51,21 @@
     align-items: center;
     justify-content: center; 
     z-index: 200; 
+}
+
+@media (max-width: 454px ) {
+    .loginBackground{
+        overflow-y: hidden;
+    }
+    .loginHeader{
+        /* background-color: red; */
+    }
+
+    .loginHeaderDivButton{
+        display: none;
+    }
+
+    div.loginComponentCard{
+        width: 90%;
+    }
 }

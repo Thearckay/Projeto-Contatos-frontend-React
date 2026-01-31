@@ -3,6 +3,9 @@
     height: 100vh;
     width: 100%;
     position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
 }
 
 .registerMainSection{
@@ -10,6 +13,7 @@
     height: 100%;
     width: 100%;
     padding: 4em 0 0 5em;
+    transition: all .3s ease;
     display: grid;
     grid-template-columns: 50% 50%;
 }
@@ -24,4 +28,44 @@
 .resgisterHeroDiv{
     /* background-color: red; */
     padding-top: 5em;
+}
+@media (max-width: 731px){
+   div.registerMainSection{
+        padding: 0;
+   }
+}
+
+@media (max-width: 1152px){
+    
+    .registerBackground{
+        min-height: 130dvh;
+    }
+
+    .registerHeaderDiv{
+        position: inherit;
+        z-index: 10;
+    }
+
+    div.resgisterComponentDiv{
+        z-index: 9;
+        padding: 0;
+        position: absolute;
+        display: flex;
+    }
+
+    section.registerMainSection{
+        /* background-color: red; */
+        display: flex;
+        justify-content: center;
+        padding: 2.5rem;
+        transition: all .3s ease;
+        /* flex-wrap: wrap; */
+    }
+
+    div.resgisterHeroDiv{
+        /* display: none; */
+        position: relative;
+        z-index: 4;
+        filter: blur(5px);
+    }
 }

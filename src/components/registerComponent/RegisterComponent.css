@@ -1,6 +1,6 @@
 .registerComponentCard {
   background-color: white;
-  padding: 25px 30px; /* Reduzi bastante o padding vertical */
+  padding: 25px 30px; 
   border-radius: 20px;
   width: 100%;
   max-width: 480px; 
@@ -11,10 +11,9 @@
   font-family: var(--fontDefault);
 }
 
-/* --- Cabeçalho --- */
 .registerComponentHeader h2 {
   color: var(--txtMain);
-  font-size: 1.6rem; /* Fonte um pouco menor */
+  font-size: 1.6rem; 
   margin-bottom: 5px;
   font-weight: 700;
 }
@@ -22,22 +21,21 @@
 .registerComponentHeader p {
   color: var(--grayDark);
   font-size: 0.85rem;
-  margin-bottom: 20px; /* Menos espaço antes do form */
+  margin-bottom: 20px; 
 }
 
-/* --- Organização dos Inputs --- */
 .registerComponentForm {
   text-align: left;
 }
 
 .registerComponentInputGroup {
-  margin-bottom: 12px; /* Reduzi o espaço entre um campo e outro */
+  margin-bottom: 12px; 
   width: 100%;
 }
 
 .registerComponentRow {
   display: flex;
-  gap: 12px; /* Menos espaço entre inputs lado a lado */
+  gap: 12px; 
 }
 
 @media (max-width: 500px) {
@@ -47,13 +45,12 @@
   }
 }
 
-/* --- Estilo dos Campos --- */
 .registerComponentLabel {
   display: block;
-  font-size: 0.8rem; /* Label mais delicada */
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--txtMain);
-  margin-bottom: 5px; /* Mais grudadinho no input */
+  margin-bottom: 5px; 
 }
 
 .registerComponentInputWrapper {
@@ -61,8 +58,8 @@
   align-items: center;
   background-color: #F8F9FA;
   border: 1px solid #E9ECEF;
-  border-radius: 10px; /* Borda levemente menos arredondada pra combinar com o tamanho menor */
-  padding: 8px 12px; /* Aqui é o segredo da altura do input (ficou mais fino) */
+  border-radius: 10px; 
+  padding: 8px 12px; 
   transition: border 0.3s;
 }
 
@@ -90,10 +87,9 @@
   color: #adb5bd;
 }
 
-/* --- Botão --- */
 .registerComponentBtn {
   width: 100%;
-  padding: 12px; /* Botão um pouco mais fino */
+  padding: 12px; 
   background-color: var(--logoColor);
   color: white;
   border: none;
@@ -113,9 +109,8 @@
   opacity: 0.9;
 }
 
-/* --- Rodapé --- */
 .registerComponentFooter {
-  margin-top: 20px; /* Menos espaço pro rodapé */
+  margin-top: 20px; 
   font-size: 0.85rem;
   border-top: 1px solid #F0F0F0;
   padding-top: 15px;
@@ -134,4 +129,10 @@
 
 .registerComponentLink:hover {
   color: var(--logoColor);
+}
+
+@media(max-width: 500px){
+  .registerComponenteCard{
+    width: 80%;
+  }
 }
