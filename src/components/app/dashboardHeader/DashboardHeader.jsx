@@ -1,15 +1,15 @@
 import React from 'react'
 import './DashboardHeader.css'
 
-const DashboardHeader = () => {
+const DashboardHeader = ({ handleOpenOrCloseNewContactModal }) => {
   return (
     <div className='dashboardHeader'>
         <h1>Painel Geral</h1>
         <input type="text" className='dashboardHeaderSearchContacts' name="" id="" placeholder='Pesquisar contatos...' />
         <button className='dashboardHeaderBellButton'>
-            <i class="bi bi-bell-fill"></i>
+            <i className="bi bi-bell-fill"></i>
         </button>
-        <button className='dashboardHeaderNewContactButton'>
+        <button className='dashboardHeaderNewContactButton'onClick={handleOpenOrCloseNewContactModal}>
             <p>+</p>
             <p>Novo Contato</p>
         </button>

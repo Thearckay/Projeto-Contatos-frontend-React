@@ -1,12 +1,13 @@
 .dashboard{
     font-family: var(--fontDefault);
     background-color: red;
-    display: flex;
     height: 100%;
     position: relative;
     padding-left: 3em;
 }
-.dashboard .dashboardMainSection {
+
+.dashboardMainSection {
+    background-color: rebeccapurple;
     width: 100%;
     height: 100%;
 }
@@ -14,9 +15,26 @@
 .dashboardSection {
     width: 100%;
     height: 100%;
-    /* padding: 1rem; */
     background-color: var(--mainBackgroundColor);
+    display: grid;
+    padding: 0 0rem 1rem 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "headerMenu headerMenu headerMenu"
+        "helloUser helloUser helloUser"
+        "contactsWidgets contactsWidgets contactsWidgets"
+        "favoriteContacts favoriteContacts favoriteContacts"
+        "recentAcitivities recentAcitivities organizeWidgets"
+    ;
+
 }
+
+.dashboardHeaderDiv{grid-area: headerMenu;}
+.dashboardHelloUserDiv{grid-area: helloUser;}
+.dashboardContactsWidgetsDiv{grid-area: contactsWidgets;}
+.dashboardFavoriteContactsDiv{grid-area: favoriteContacts;}
+.dashboardRecentActivitiesDiv{grid-area: recentAcitivities;}
+.dashboardOrganizeWidgetsDiv{grid-area: organizeWidgets; margin-left: 3rem; padding-right: 1rem;}
 
 .dashboardHelloUserDiv{
     /* background-color: red; */

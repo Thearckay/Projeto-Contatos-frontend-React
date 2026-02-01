@@ -1,7 +1,7 @@
 .dashboardHeader{
     background-color: var(--secondBackgroundColor);
     width: 100%;
-    max-height: 10%;
+    /* max-height: 10%; */
     padding: 1em;
     display: grid;
     align-items: center;
@@ -41,4 +41,5 @@
     background-color: var(--logoColor);
     color: var(--txtContrast);
     border-radius: 1em;
+    cursor: pointer;
 }

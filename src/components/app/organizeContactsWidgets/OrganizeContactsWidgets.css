@@ -1,12 +1,26 @@
 .organizeContactsWidgets{
+    font-family: var(--fontDefault);
     background-color: var(--txtMain);
     color: var(--txtContrast);
-    margin-left: 3em; /*remover isso depois*/
-    padding: 1rem;
+    padding: 1.4rem;
     border-radius: 1rem;
-    width: 20%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 0.2fr 1fr 1fr;
+
 }
 
 .organizeContactsWidgetIcon{
     font-size: 4rem;
+}
+
+.organizeContactsWidgetButton{
+    padding: .5rem;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 650;
+    color: var(--txtMain);
+    font-family: var(--fontDefault);
 }
