@@ -1,21 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './DashboardHeader.css'
 
 const DashboardHeader = ({ handleOpenOrCloseNewContactModal }) => {
+
+  const [contacts, setContacts] = useState([])
+
+  const [search, setSearch] = useState('')
+  const [open, setOpen] = useState(true)
+
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(search.toLowerCase())
+  )
+
   return (
     <div className='dashboardHeader'>
-        <h1>Painel Geral</h1>
-        <input type="text" className='dashboardHeaderSearchContacts' name="" id="" placeholder='Pesquisar contatos...' />
-        <button className='dashboardHeaderBellButton'>
-            <i className="bi bi-bell-fill"></i>
-        </button>
-        <button className='dashboardHeaderNewContactButton'onClick={handleOpenOrCloseNewContactModal}>
-            <p>+</p>
-            <p>Novo Contato</p>
-        </button>
-        <div className='dashboardHeaderDropDown'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, ratione! Officiis, mollitia explicabo veritatis natus praesentium tempora assumenda enim architecto tempore iure earum maxime, fugit harum optio quasi cupiditate quo.
-        </div>
+      <h1>Painel Geral</h1>
+
+      <div className='dashboardHeaderInputWrapper'>
+        <input
+          type="text"
+          className='dashboardHeaderSearchContacts'
+          placeholder='Pesquisar contatos...'
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value)
+            setOpen(true)
+          }}
+          onFocus={() => setOpen(true)}
+          onBlur={() => setTimeout(() => setOpen(false), 150)}
+        />
+
+        {open && search && (
+          <div className='dashboardHeaderDropDown'>
+            {filteredContacts.length === 0 && (
+              <p className="dropdownEmpty">Nenhum contato encontrado</p>
+            )}
+
+            {filteredContacts.map(contact => (
+              <div key={contact.id} className="dropdownItem">
+                {contact.name}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <button className='dashboardHeaderBellButton'>
+        <i className="bi bi-bell-fill"></i>
+      </button>
+
+      <button
+        className='dashboardHeaderNewContactButton'
+        onClick={handleOpenOrCloseNewContactModal}
+      >
+        <p>+</p>
+        <p>Novo Contato</p>
+      </button>
     </div>
   )
 }

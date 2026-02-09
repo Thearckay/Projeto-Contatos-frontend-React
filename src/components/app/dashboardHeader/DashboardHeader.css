@@ -8,6 +8,7 @@
     grid-template-columns: 1fr 5fr 0.3fr 1fr;
     transition: all 0.3s ease;
     font-family: var(--fontDefault);
+    position: relative;
 }
 
 .dashboardHeader h1 {
@@ -20,6 +21,7 @@
     border-radius: 1em;
     border: none;
     background-color: var(--thirdBackgroundColor);
+    width: 97%;
 }
 
 .dashboardHeaderBellButton {
@@ -45,12 +47,64 @@
     cursor: pointer;
 }
 
-@media(max-width: 1090px){.dashboardHeader{grid-template-columns: 1.1fr 4fr 0.3fr 1fr;}}
-@media(max-width: 885px){.dashboardHeader{grid-template-columns: 1.2fr 3.5fr 0.3fr 1fr;}}
+.dashboardHeaderInputWrapper{
+    width: 100%;
+    /* background-color: red; */
+}
+
+.dashboardHeaderDropDown{
+    position: absolute;
+    width: 100%;
+    background-color: red;
+    /* transform: translateX(50%); */
+    background-color: var(--thirdBackgroundColor);
+    padding: 1rem;
+    border-bottom-left-radius: 1rem ;
+    border-bottom-right-radius: 1rem;
+    top: 3.2rem;
+}
+
+@media(max-width: 1090px){
+    .dashboardHeader{grid-template-columns: 1.1fr 4fr 0.3fr 1fr;}
+    .dashboardHeaderDropDown{ width: 50%;transform: translateX(50%)}
+}
+@media(max-width: 885px){
+    .dashboardHeader{grid-template-columns: 1.2fr 3.5fr 0.3fr 1fr;}
+    .dashboardHeaderDropDown{ width: 40%;transform: translateX(75%)}
+}
 @media(max-width: 828px){.dashboardHeader{grid-template-columns: 1.2fr 3fr 0.3fr 1fr;}}
 @media(max-width: 766px){.dashboardHeader{grid-template-columns: 1.2fr 2.5fr 0.3fr 1fr;}} 
 @media(max-width: 704px){.dashboardHeader{grid-template-columns: 1.2fr 2fr 0.3fr 1fr;}} 
 
-.dashboardHeaderDropDown{
-    
+.dashboardHeaderInputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.dashboardHeaderDropDown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background-color: var(--thirdBackgroundColor);
+  border-radius: 1rem;
+  padding: .5rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  z-index: 10;
+}
+
+.dropdownItem {
+  padding: .6rem;
+  cursor: pointer;
+  border-radius: .5rem;
+}
+
+.dropdownItem:hover {
+  background-color: var(--secondBackgroundColor);
+}
+
+.dropdownEmpty {
+  padding: .6rem;
+  opacity: .7;
+  font-size: .9rem;
 }
