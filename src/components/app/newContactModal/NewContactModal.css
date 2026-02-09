@@ -11,7 +11,6 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    user-select: none;
     animation: fadeIn 0.2s ease-in-out;
 }
 
@@ -26,6 +25,7 @@
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
+    z-index: 1001;
 }
 
 /* Cabeçalho */
@@ -108,9 +108,8 @@
 
 /* Modificadores específicos podem ficar encadeados */
 .newContactModalFormRow.addressRow {
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
-
 .newContactModalInputGroup {
     display: flex;
     flex-direction: column;
@@ -119,6 +118,10 @@
 
 .newContactModalInputGroup.fullWidth {
     grid-column: 1 / -1;
+}
+
+.newContactModalInputGroup.startPosition{
+    align-items: flex-start;
 }
 
 .newContactModalInputGroup label {

@@ -5,7 +5,8 @@
     padding: 1em;
     display: grid;
     align-items: center;
-    grid-template-columns: 11% 70% 5% 13%;
+    grid-template-columns: 1fr 5fr 0.3fr 1fr;
+    transition: all 0.3s ease;
     font-family: var(--fontDefault);
 }
 
@@ -43,3 +44,9 @@
     border-radius: 1em;
     cursor: pointer;
 }
+
+@media(max-width: 1090px){.dashboardHeader{grid-template-columns: 1.1fr 4fr 0.3fr 1fr;}}
+@media(max-width: 885px){.dashboardHeader{grid-template-columns: 1.2fr 3.5fr 0.3fr 1fr;}}
+@media(max-width: 828px){.dashboardHeader{grid-template-columns: 1.2fr 3fr 0.3fr 1fr;}}
+@media(max-width: 766px){.dashboardHeader{grid-template-columns: 1.2fr 2.5fr 0.3fr 1fr;}} 
+@media(max-width: 704px){.dashboardHeader{grid-template-columns: 1.2fr 2fr 0.3fr 1fr;}} 

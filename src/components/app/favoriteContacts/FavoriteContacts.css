@@ -117,6 +117,7 @@
     background-color: transparent;
     color: var(--txt);
     font-size: 4em;
+    min-height: 254px;
 }
 
 .favoriteContactsAddContact:hover{

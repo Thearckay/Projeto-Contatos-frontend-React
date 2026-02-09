@@ -1,23 +1,38 @@
-import React from 'react';
+import React  from 'react';
 import './NewContactModal.css';
 
-const NewContactModal = ({ handleOpenOrCloseNewContactModal }) => {
+const NewContactModal = ({ handleOpenOrCloseNewContactModal, handleRequestToBackend }) => {
 
     const handleModalClick = (e) => {
         e.stopPropagation();
     }
 
-    const handleAddNewContact = (e) => {
+    const handleAddNewContact = async (e) => {
+        console.log('contato enviado')
         e.preventDefault()
         const form = document.querySelector('.newContactModalForm')
         const formdata = new FormData(form);
-        console.log(formdata)
         const dataForm = Object.fromEntries(formdata);
+        dataForm.favorited = formdata.has('favorited')
         console.log(JSON.stringify(dataForm))
+        fetch(`http://localhost:8080/users/contacts`,{
+            method: 'POST',
+            headers: {
+                'Content-type':'application/json',
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            }, 
+            body: JSON.stringify(dataForm)
+        })
+        .then(resp => resp.json())
+        .then(respData => console.log(respData))
+        .then(
+            handleOpenOrCloseNewContactModal(),
+            handleRequestToBackend()
+        )
     }
 
     return (
-        <div className="newContactModalOverlay" onClick={()=>handleOpenOrCloseNewContactModal}>
+        <div className="newContactModalOverlay" id='newContactModalOverlay' onClick={()=>handleOpenOrCloseNewContactModal}>
             <div className="newContactModalContainer" onClick={handleModalClick}>
         
                 <div className="newContactModalHeader">
@@ -51,6 +66,11 @@ const NewContactModal = ({ handleOpenOrCloseNewContactModal }) => {
                         <input type="text" placeholder="Ex: João Silva" name="fullName" />
                     </div>
 
+                    <div className="newContactModalInputGroup startPosition">
+                        <label>Favorito</label>
+                        <input type='checkbox' name='favorited' />
+                    </div>
+
                     <div className="newContactModalFormRow">
                         <div className="newContactModalInputGroup">
                             <label>EMAIL</label>
@@ -61,7 +81,6 @@ const NewContactModal = ({ handleOpenOrCloseNewContactModal }) => {
                             <input type="tel" placeholder="(00) 00000-0000" name="phone" />
                         </div>
                     </div>
-
                     <div className="newContactModalFormRow">
                         <div className="newContactModalInputGroup">
                             <label>ANIVERSÁRIO</label>
@@ -73,8 +92,19 @@ const NewContactModal = ({ handleOpenOrCloseNewContactModal }) => {
                         </div>
                     </div>
 
-                   
                     <div className="newContactModalFormRow addressRow">
+                        <div className="newContactModalInputGroup">
+                            <label>CIDADE</label>
+                            <input type="text" placeholder="Itaperuna" name="city" />
+                        </div>
+                        <div className="newContactModalInputGroup">
+                            <label>BAIRRO</label>
+                            <input type="text" placeholder="Centro" name="neighborhood" />
+                        </div>
+                    </div>
+
+                   
+                    <div className="newContactModalFormRow">
                         <div className="newContactModalInputGroup">
                             <label>RUA</label>
                             <input type="text" placeholder="Rua das Flores" name="street" />
@@ -83,11 +113,8 @@ const NewContactModal = ({ handleOpenOrCloseNewContactModal }) => {
                             <label>NÚMERO</label>
                             <input type="text" placeholder="123" name="streetNumber" />
                         </div>
-                         <div className="newContactModalInputGroup">
-                            <label>BAIRRO</label>
-                            <input type="text" placeholder="Centro" name="neighborhood" />
-                        </div>
                     </div>
+
 
                     <div className="newContactModalInputGroup fullWidth">
                         <label>NOTAS</label>
@@ -96,7 +123,7 @@ const NewContactModal = ({ handleOpenOrCloseNewContactModal }) => {
 
                     <div className="newContactModalFooter">
                         <button type="button" className="newContactModalCancelBtn" onClick={handleOpenOrCloseNewContactModal}>Cancelar</button>
-                        <button type="submit" className="newContactModalSaveBtn">✓ Salvar Contato</button>
+                        <button type="submit" className="newContactModalSaveBtn" onClick={handleAddNewContact}>✓ Salvar Contato</button>
                     </div>
 
                 </form>

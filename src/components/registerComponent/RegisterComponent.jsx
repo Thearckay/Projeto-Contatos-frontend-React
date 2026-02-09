@@ -49,7 +49,7 @@ const RegisterComponent = ({ notifiyer }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/user/register', {
+      const response = await fetch('http://localhost:8080/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,8 +62,9 @@ const RegisterComponent = ({ notifiyer }) => {
 
       if (response.ok) {
         setTimeout(() => {
-          navigate('/login')
-        }, 4000)
+          localStorage.setItem("token", result.data[0].token)
+          navigate('/app/dashboard')
+        }, 2000)
       } 
       
     } catch (error) {

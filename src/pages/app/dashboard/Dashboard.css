@@ -4,6 +4,7 @@
     height: 100%;
     position: relative;
     padding-left: 3em;
+    overflow: hidden;
 }
 
 .dashboardMainSection {
@@ -40,4 +41,25 @@
     /* background-color: red; */
     padding-top: 1em;
     padding-left: 2%;
+}
+
+@media (max-width: 730px) {
+    .dashboardHelloUserDiv{
+        padding: 0 0 0 1rem;
+    }
+}
+
+@media (max-width: 605px) {
+    .dashboardSection{
+        grid-template-areas: 
+        "headerMenu headerMenu headerMenu"
+        "helloUser helloUser helloUser"
+        "contactsWidgets contactsWidgets contactsWidgets"
+        "favoriteContacts favoriteContacts favoriteContacts"
+        "recentAcitivities recentAcitivities  recentAcitivities"
+        "organizeWidgets organizeWidgets organizeWidgets"
+    }
+    .dashboardOrganizeWidgetsDiv{
+        margin: 1rem 0 0 1.5rem;
+    }
 }

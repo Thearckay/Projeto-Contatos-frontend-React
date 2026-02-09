@@ -12,7 +12,7 @@ const LoginComponent = ({notifier}) => {
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData)
 
-    const response = await fetch('http://localhost:8080/user/login', {
+    const response = await fetch('http://localhost:8080/users/login', {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
@@ -22,14 +22,18 @@ const LoginComponent = ({notifier}) => {
     )
 
     const result = await response.json()
-    console.log("O handle do login foi ativado")
+    
+    console.log("O json é:")
+    console.log(result)
 
-    if (result.status === 200){
+    if (result.status === "200"){
       setTimeout(()=>{
+        localStorage.setItem("token", result.data[0].token)
+        console.log("esperando 2s e meio")
         navigate('/app/dashboard')
       },2500)
     }
-
+    
     notifier(result)
   }
 
@@ -53,6 +57,7 @@ const LoginComponent = ({notifier}) => {
               type="email" 
               id="email" 
               name='email'
+              autoComplete='username'
               placeholder="seu@email.com" 
             />
           </div>
@@ -71,6 +76,7 @@ const LoginComponent = ({notifier}) => {
               type="password" 
               id="password"
               name='password'
+              autoComplete='current-password'
               placeholder="........" 
             />
           </div>
