@@ -15,7 +15,7 @@ const NewContactModal = ({ handleOpenOrCloseNewContactModal, handleRequestToBack
         const dataForm = Object.fromEntries(formdata);
         dataForm.favorited = formdata.has('favorited')
         console.log(JSON.stringify(dataForm))
-        fetch(`http://localhost:8080/users/contacts`,{
+        const response = await fetch(`http://localhost:8080/users/contacts`,{
             method: 'POST',
             headers: {
                 'Content-type':'application/json',
@@ -23,12 +23,10 @@ const NewContactModal = ({ handleOpenOrCloseNewContactModal, handleRequestToBack
             }, 
             body: JSON.stringify(dataForm)
         })
-        .then(resp => resp.json())
-        .then(respData => console.log(respData))
-        .then(
-            handleOpenOrCloseNewContactModal(),
-            handleRequestToBackend()
-        )
+
+        console.log(response.json())
+        handleOpenOrCloseNewContactModal()
+        handleRequestToBackend()
     }
 
     return (

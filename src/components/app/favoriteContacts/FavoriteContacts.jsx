@@ -18,9 +18,7 @@ const FavoriteContacts = ({ favoriteContactList, handleOpenOrCloseNewContactModa
       <div className="favoriteContactsGrid">
         {favoriteContactList && favoriteContactList.length > 0 ? (
           favoriteContactList.map((contact) => (
-            <div className="favoriteContactsCard" key={contact.email}> 
-              {/* depois pegar o ID para colocar aqui */}
-              
+            <div className="favoriteContactsCard" key={contact.id}> 
               <i className="bi bi-star-fill favoriteContactsFavorited"></i>
               <img
                 src="https://i.pinimg.com/236x/21/9e/ae/219eaea67aafa864db091919ce3f5d82.jpg"

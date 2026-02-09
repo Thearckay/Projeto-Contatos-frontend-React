@@ -29,6 +29,7 @@ const LoginComponent = ({notifier}) => {
     if (result.status === "200"){
       setTimeout(()=>{
         localStorage.setItem("token", result.data[0].token)
+        // localStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb250YWN0LWFwaSIsInN1YiI6InRoZWFyY2theUBnbWFpbC5jb20iLCJleHAiOjE3NzA1OTk2MzR9.uLd1xoaeO7bLcJ67yp5cdBpB-BS7nTOfB_64QKR5ZXk")
         console.log("esperando 2s e meio")
         navigate('/app/dashboard')
       },2500)

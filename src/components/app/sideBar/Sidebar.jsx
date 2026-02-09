@@ -4,14 +4,16 @@ import './Sidebar.css';
 import Logo from '../../logo/Logo';
 
 const Sidebar = () => {
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [user, setUser] = useState({ name: 'Usuário', email: '' });
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    const loggedUser = localStorage.getItem("userName");
+    const userEmail = localStorage.getItem("userEmail")
+    if (loggedUser) {
+      setUser({name: loggedUser, email: userEmail});
     }
   }, []);
 
@@ -73,7 +75,7 @@ const Sidebar = () => {
             </div>
             <div className="user-details">
                 <span className="user-name">{user.name}</span>
-                <span className="user-email">Admin</span>
+                <span className="user-email">{user.email}</span>
             </div>
         </div>
         <button onClick={handleLogout} className="logout-btn">

@@ -7,6 +7,8 @@ import FavoriteContacts from '../../../components/app/favoriteContacts/FavoriteC
 import RecentActivities from '../../../components/app/recentActivities/RecentActivities'
 import OrganizeContactsWidgets from '../../../components/app/organizeContactsWidgets/OrganizeContactsWidgets'
 import NewContactModal from '../../../components/app/newContactModal/NewContactModal'
+import { useNavigate } from 'react-router'
+import Notification from '../../../components/notification/Notification'
 
 const Dashboard = () => {
 
@@ -16,10 +18,38 @@ const Dashboard = () => {
   const [totalNewContacts, setTotalNewContacts] = useState(0)
   const [userName, setUserName] = useState("User")
   const [favoriteContactList, setFavoriteContactList] = useState([])
+  const navigate = useNavigate()
+
+  const [notification, setNotification] = useState({
+    status: 0,
+    message: '',
+    data: {},
+    erros: []
+  })
+
+  const notifier = (json) => {
+    setNotification({
+      status: json.status,
+      message: json.message,
+      data: json.data,
+      erros: json.erros
+
+    })
+    console.log("O objeto subiu! "+json.status)
+  }
+
+  const closeNotification = () =>{
+    setNotification({
+      status: 0,
+      message: '',
+      data: {},
+      erros: []
+    })
+  }
 
 
   const handleOpenOrCloseNewContactModal = () => {
-    console.log("CLicaoooooo")
+    console.log("Request para o backend feito")
     setIsAddContact(!isAddContact)
     handleSendRequestBackend()
   }
@@ -35,6 +65,19 @@ const Dashboard = () => {
     .then(resp => resp.json())
     .then(respData => {
 
+      console.log(respData)
+
+      if(respData.status === "401") {
+        setTimeout(()=> {
+          localStorage.removeItem("token")
+          navigate('/login')
+        }, 1900)
+        notifier(respData)
+        return;
+      }
+
+      localStorage.setItem("userName", respData.data[0].userName)
+      localStorage.setItem("userEmail", respData.data[0].userEmail)
       setTotalContacts(respData.data[0].totalContacts)
       setTotalFavoriteContacts(respData.data[0].totalFavorites)
       setTotalNewContacts(respData.data[0].newContactsThisMonth)
@@ -75,7 +118,7 @@ const Dashboard = () => {
           </div>
         </section>
         {isAddContact? <NewContactModal handleOpenOrCloseNewContactModal={handleOpenOrCloseNewContactModal} handleRequestToBackend={handleSendRequestBackend}/> : ""}
-        
+        <Notification notification={notification} onClose={closeNotification} />
       </main>
     </div>
   )
