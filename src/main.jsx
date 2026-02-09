@@ -9,6 +9,7 @@ import NotFoundPage from './pages/notFound/NotFoundPage.jsx'
 import Teste from './pages/Teste.jsx'
 import Dashboard from './pages/app/dashboard/Dashboard.jsx'
 import ContactsPage from './pages/app/contacts/ContactsPage.jsx'
+import FavoriteContactsPage from './pages/app/favoriteContacts/FavoriteContactsPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: '/app/contacts',
     element: <ContactsPage />
+  },
+  {
+    path: 'app/contacts/favorites',
+    element: <FavoriteContactsPage />
   },
   {
     path: 'test',

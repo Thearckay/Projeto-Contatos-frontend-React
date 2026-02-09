@@ -13,6 +13,9 @@ const DashboardHeader = ({ handleOpenOrCloseNewContactModal }) => {
             <p>+</p>
             <p>Novo Contato</p>
         </button>
+        <div className='dashboardHeaderDropDown'>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, ratione! Officiis, mollitia explicabo veritatis natus praesentium tempora assumenda enim architecto tempore iure earum maxime, fugit harum optio quasi cupiditate quo.
+        </div>
     </div>
   )
 }

@@ -49,7 +49,7 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/app/favorites">
+          <Link to="/app/contacts/favorites">
             <i className="bi bi-star-fill"></i>
             <span className="link-text">Favoritos</span>
           </Link>
