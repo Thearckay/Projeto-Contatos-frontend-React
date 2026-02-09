@@ -1,0 +1,87 @@
+.contactsPageMainContent{
+    margin-left: 3rem;
+    
+}
+
+.contactsPageGridContacts{
+    padding: 1.5rem;
+    background-color: var(--mainBackgroundColor);
+    height: 90.8dvh;
+    width: 100%;
+    display: grid;
+    /* grid-template-rows: max-content; */
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-columns: 200px;
+    /* grid-auto-flow: row; */
+    gap: 1rem;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    font-family: var(--fontDefault);
+}
+
+/* Card */
+
+.favoriteContactsCard {
+    background-color: var(--secondBackgroundColor);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease; 
+    border: 1px solid transparent;
+    position: relative;
+}
+
+.favoriteContactsFavorited{
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    font-size: 1.2rem;
+    color: rgb(244, 244, 81);
+}
+
+.favoriteContactsCardPicture {
+    width: 80px;  
+    height: 80px; 
+    border-radius: 50%; 
+    object-fit: cover;
+    aspect-ratio: 1/1; 
+    margin-bottom: 0.5rem;
+}
+
+.favoriteContactsCardName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--txtMain);
+    margin: 0;
+}
+
+.favoriteContactsCardOccupation {
+    font-size: 0.85rem;
+    color: var(--txtSecondary, #666);
+    margin-bottom: 1rem;
+}
+
+.cardActions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.btn-card {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: #eee; 
+    transition: background 0.2s;
+}
+
+.btn-card:hover {
+    background-color: #ddd;
+}

@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router";
 import "./FavoriteContacts.css";
 
 const FavoriteContacts = ({ favoriteContactList, handleOpenOrCloseNewContactModal }) => {
 
+  const navigate = useNavigate()
 
   return (
     <section className="favoriteContacts">
@@ -10,7 +12,7 @@ const FavoriteContacts = ({ favoriteContactList, handleOpenOrCloseNewContactModa
           <i className="bi bi-star-fill"></i>
           Contatos Favoritos
         </h3>
-        <button className="favoriteContactsSeeAllButton">
+        <button className="favoriteContactsSeeAllButton" onClick={()=> navigate('/app/')}>
           Ver todos <i className="bi bi-arrow-right"></i>
         </button>
       </div>

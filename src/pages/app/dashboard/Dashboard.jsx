@@ -35,7 +35,6 @@ const Dashboard = () => {
       erros: json.erros
 
     })
-    console.log("O objeto subiu! "+json.status)
   }
 
   const closeNotification = () =>{

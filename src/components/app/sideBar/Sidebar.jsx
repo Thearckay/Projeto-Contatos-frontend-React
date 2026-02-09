@@ -37,31 +37,31 @@ const Sidebar = () => {
 
       <ul className="nav-links">
         <li>
-          <Link to="/dashboard">
+          <Link to="/app/dashboard">
             <i className="bi bi-grid-1x2-fill"></i>
             <span className="link-text">Dashboard</span>
           </Link>
         </li>
         <li>
-          <Link to="/contacts">
+          <Link to="/app/contacts">
             <i className="bi bi-person-lines-fill"></i>
             <span className="link-text">Contatos</span>
           </Link>
         </li>
         <li>
-          <Link to="/favorites">
+          <Link to="/app/favorites">
             <i className="bi bi-star-fill"></i>
             <span className="link-text">Favoritos</span>
           </Link>
         </li>
         <li>
-          <Link to="/groups">
+          <Link to="/app/groups">
             <i className="bi bi-collection-fill"></i>
             <span className="link-text">Grupos</span>
           </Link>
         </li>
         <li>
-          <Link to="/settings">
+          <Link to="/app/settings">
             <i className="bi bi-gear-fill"></i>
             <span className="link-text">Configurações</span>
           </Link>

@@ -8,6 +8,7 @@ import Register from './pages/register/Register.jsx'
 import NotFoundPage from './pages/notFound/NotFoundPage.jsx'
 import Teste from './pages/Teste.jsx'
 import Dashboard from './pages/app/dashboard/Dashboard.jsx'
+import ContactsPage from './pages/app/contacts/ContactsPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: '/app/dashboard',
     element: <Dashboard />
+  },
+  {
+    path: '/app/contacts',
+    element: <ContactsPage />
   },
   {
     path: 'test',
