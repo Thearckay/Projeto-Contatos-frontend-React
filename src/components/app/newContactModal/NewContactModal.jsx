@@ -1,5 +1,6 @@
 import React  from 'react';
 import './NewContactModal.css';
+import { newContactModalRequest } from '../../../Service/ApiService';
 
 const NewContactModal = ({ handleOpenOrCloseNewContactModal, handleRequestToBackend }) => {
 
@@ -8,25 +9,17 @@ const NewContactModal = ({ handleOpenOrCloseNewContactModal, handleRequestToBack
     }
 
     const handleAddNewContact = async (e) => {
-        console.log('contato enviado')
         e.preventDefault()
         const form = document.querySelector('.newContactModalForm')
         const formdata = new FormData(form);
         const dataForm = Object.fromEntries(formdata);
         dataForm.favorited = formdata.has('favorited')
-        console.log(JSON.stringify(dataForm))
-        const response = await fetch(`http://localhost:8080/users/contacts`,{
-            method: 'POST',
-            headers: {
-                'Content-type':'application/json',
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
-            }, 
-            body: JSON.stringify(dataForm)
-        })
+        newContactModalRequest(dataForm)
 
-        console.log(response.json())
-        handleOpenOrCloseNewContactModal()
-        handleRequestToBackend()
+        setTimeout(()=>{
+            handleOpenOrCloseNewContactModal()
+            handleRequestToBackend()
+        },100)
     }
 
     return (

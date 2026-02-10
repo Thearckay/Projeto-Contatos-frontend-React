@@ -9,6 +9,7 @@ import OrganizeContactsWidgets from '../../../components/app/organizeContactsWid
 import NewContactModal from '../../../components/app/newContactModal/NewContactModal'
 import { useNavigate } from 'react-router'
 import Notification from '../../../components/notification/Notification'
+import { dashboardRequest } from '../../../Service/ApiService'
 
 const Dashboard = () => {
 
@@ -53,20 +54,9 @@ const Dashboard = () => {
     handleSendRequestBackend()
   }
 
-  const handleSendRequestBackend = ()=> {
-    fetch("http://localhost:8080/app/dashboard", {
-      method: 'GET',
-      headers:{
-        'Content-Type': 'application/json',
-        "Authorization": `Bearer ${localStorage.getItem("token")}`
-      }
-    })
-    .then(resp => resp.json())
-    .then(respData => {
-
-      console.log(respData)
-
-      if(respData.status === "401") {
+  const handleSendRequestBackend = async ()=> {
+    const respData = await dashboardRequest()
+    if(respData.status === "401") {
         setTimeout(()=> {
           localStorage.removeItem("token")
           navigate('/login')
@@ -83,8 +73,6 @@ const Dashboard = () => {
       const fullUserName = respData.data[0].userName.split(" ")
       setUserName(fullUserName[0]+" "+fullUserName[fullUserName.length -1])
       setFavoriteContactList(respData.data[0].favoritedContactList)
-    
-    })
   }
 
   useEffect(()=>{

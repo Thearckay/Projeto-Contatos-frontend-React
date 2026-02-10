@@ -12,7 +12,7 @@ const FavoriteContacts = ({ favoriteContactList, handleOpenOrCloseNewContactModa
           <i className="bi bi-star-fill"></i>
           Contatos Favoritos
         </h3>
-        <button className="favoriteContactsSeeAllButton" onClick={()=> navigate('/app/')}>
+        <button className="favoriteContactsSeeAllButton" onClick={()=> navigate('/app/contacts/favorites')}>
           Ver todos <i className="bi bi-arrow-right"></i>
         </button>
       </div>

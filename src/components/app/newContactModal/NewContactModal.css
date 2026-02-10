@@ -26,6 +26,7 @@
     max-height: 90vh;
     overflow-y: auto;
     z-index: 1001;
+    font-family: var(--fontDefault);
 }
 
 /* Cabeçalho */

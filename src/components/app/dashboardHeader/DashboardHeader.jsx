@@ -1,16 +1,25 @@
 import React, { useState } from 'react'
 import './DashboardHeader.css'
+import { headerDashboardRequestQuery } from '../../../Service/ApiService'
 
 const DashboardHeader = ({ handleOpenOrCloseNewContactModal }) => {
 
   const [contacts, setContacts] = useState([])
-
   const [search, setSearch] = useState('')
   const [open, setOpen] = useState(true)
+  const [respJson, setRespJson] = useState({})
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(search.toLowerCase())
   )
+
+  const  handleRequestToBackend = async () => {
+    setTimeout(async ()=> {
+      setRespJson(await headerDashboardRequestQuery(search))
+    },500)
+
+    console.log(await respJson)
+  }
 
   return (
     <div className='dashboardHeader'>
@@ -25,6 +34,7 @@ const DashboardHeader = ({ handleOpenOrCloseNewContactModal }) => {
           onChange={(e) => {
             setSearch(e.target.value)
             setOpen(true)
+            handleRequestToBackend()
           }}
           onFocus={() => setOpen(true)}
           onBlur={() => setTimeout(() => setOpen(false), 150)}
