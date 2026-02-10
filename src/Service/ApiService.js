@@ -1,13 +1,14 @@
 const API_BASE_URL = `http://localhost:8080`
 
+const getHeaders = () => ({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+})
 // Dashboard
 async function dashboardRequest(){
     const dashboardRequest = await fetch(`${API_BASE_URL}/app/dashboard`, {
       method: 'GET',
-      headers:{
-        'Content-Type': 'application/json',
-        "Authorization": `Bearer ${localStorage.getItem('token')}`
-      }
+      headers: getHeaders()
     })
 
     console.log("O Service API foi chamado")
@@ -19,10 +20,7 @@ async function dashboardRequest(){
 async function headerDashboardRequestQuery(query) {
     const headerDashboardResponse = await fetch(`${API_BASE_URL}/users/contacts/search?q=${query}`,{
         method: 'GET',
-        headers:{
-        'Content-Type': 'application/json',
-        "Authorization": `Bearer ${localStorage.getItem('token')}`
-      }
+        headers: getHeaders()
     })
 
     const resp = await headerDashboardResponse.json()
@@ -34,10 +32,7 @@ async function headerDashboardRequestQuery(query) {
 async function newContactModalRequest(dataForm) {
     const newContatcRequest = await fetch(`${API_BASE_URL}/users/contacts`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            "Authorization": `Bearer ${localStorage.getItem('token')}`
-        },
+        headers: getHeaders(),
         body:  JSON.stringify(dataForm)
     })
 
@@ -51,10 +46,7 @@ async function newContactModalRequest(dataForm) {
 async function contactsPageRequest() {
     const contactsRequest = await fetch(`${API_BASE_URL}/users/contacts`, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            "Authorization": `Bearer ${localStorage.getItem('token')}`
-        }
+        headers: getHeaders()
     })
 
     console.log("Chamando a página de contatos")
@@ -66,10 +58,7 @@ async function contactsPageRequest() {
 async function favoriteContactsPageRequest() {
     const favoriteContacsRequest = await fetch(`${API_BASE_URL}/users/contacts/favorites`, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
+        headers: getHeaders()
     })
 
     console.log("Contatos favoritos requisitados")
