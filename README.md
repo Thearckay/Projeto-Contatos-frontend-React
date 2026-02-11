@@ -14,7 +14,7 @@ Agora, de fato, sobre o frontend, escolhi o React.js e o React Router para fazer
 > <p style="display:flex; gap:10px;" >Visto que o React.js tornou-se padrão para o desenvolvimento web, é pertinente adequar-me à stack tecnológica. <img src="image-1.png" alt="Logo do React" width="50">
 </p>
 
-Aprendi React há cerca de um mês e, para consolidar meus conhecimentos, me propus a criar um projeto. Visto que já havia criado uma agenda desktop com o JavaFX, o desenvolvimento de sua versão web pareceu ser lógico.
+Aprendi React há algumas semenas e, para consolidar meus conhecimentos, me propus a criar um projeto. Visto que já havia criado uma agenda desktop com o JavaFX, o desenvolvimento de sua versão web pareceu ser lógico.
 
 ><p style="display:flex; gap:10px;"><img src=".github/assets/react-router-svgrepo-com.png" width="70">Seguindo o mesmo pensamento de utilidade de mercado, para fazer o gerenciamento das rotas do frontend optei pela biblioteca React Router</p>
 
