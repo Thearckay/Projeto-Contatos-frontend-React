@@ -66,10 +66,35 @@ async function favoriteContactsPageRequest() {
     return resp;
 }
 
+async function getContactByIdRequest(id) {
+    const contact = await fetch(`${API_BASE_URL}/users/contact/${id}`, {
+        method: 'GET',
+        headers: getHeaders()
+    })
+
+    const resp = await contact.json()
+    // console.log("O contato em especifico é:")
+    // console.log(resp)
+    return resp
+}
+
+async function deleteContactById(id) {
+    const contact = await fetch(`${API_BASE_URL}/users/contact/${id}`, {
+        method: 'DELETE',
+        headers: getHeaders()
+    })
+
+    console.log(`Contato deletado! - eu acho `)
+    const resp = await contact.json()
+    return resp    
+}
+
 export{ 
     dashboardRequest,
     headerDashboardRequestQuery,
     newContactModalRequest,
     contactsPageRequest,
-    favoriteContactsPageRequest
+    favoriteContactsPageRequest,
+    getContactByIdRequest,
+    deleteContactById
 }

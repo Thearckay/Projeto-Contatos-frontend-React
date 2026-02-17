@@ -9,16 +9,21 @@ const Sidebar = () => {
   const [user, setUser] = useState({ name: 'Usuário', email: '' });
   const navigate = useNavigate();
 
+  const loadInformation = () => {
+    setUser({
+      name: localStorage.getItem('userName'),
+      email: localStorage.getItem('userEmail')
+    })
+  }
+
   useEffect(() => {
-    const loggedUser = localStorage.getItem("userName");
-    const userEmail = localStorage.getItem("userEmail")
-    if (loggedUser) {
-      setUser({name: loggedUser, email: userEmail});
-    }
+    loadInformation()
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail')
+    localStorage.removeItem('token')
     navigate('/login');
   }
 

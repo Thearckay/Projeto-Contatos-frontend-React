@@ -41,6 +41,12 @@
 }
 
 
+.favoriteContactCardButton{
+    border: none;
+    background-color: transparent;
+}
+
+
 .favoriteContactsCard {
     background-color: var(--secondBackgroundColor);
     border-radius: 1rem;
@@ -53,9 +59,11 @@
     transition: all 0.3s ease; 
     border: 1px solid transparent;
     position: relative;
+    height: 100%;
 }
 
 .favoriteContactsCard:hover {
+    cursor: pointer;
     transform: translateY(-5px); 
     box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
     border-color: var(--primaryColor, #ccc);

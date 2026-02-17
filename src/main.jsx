@@ -10,6 +10,7 @@ import Teste from './pages/Teste.jsx'
 import Dashboard from './pages/app/dashboard/Dashboard.jsx'
 import ContactsPage from './pages/app/contacts/ContactsPage.jsx'
 import FavoriteContactsPage from './pages/app/favoriteContacts/FavoriteContactsPage.jsx'
+import ContactPage from './pages/app/contact/ContactPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
     element: <ContactsPage />
   },
   {
-    path: 'app/contacts/favorites',
+    path: '/app/contact/:id',
+    element: <ContactPage />
+  }, 
+  {
+    path: '/app/contacts/favorites',
     element: <FavoriteContactsPage />
   },
   {

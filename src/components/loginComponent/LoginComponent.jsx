@@ -22,17 +22,14 @@ const LoginComponent = ({notifier}) => {
     )
 
     const result = await response.json()
-    
-    console.log("O json é:")
-    console.log(result)
-
+  
     if (result.status === "200"){
+      localStorage.setItem("token", result.data[0].token)
+      localStorage.setItem("userName", result.data[0].name)
+      localStorage.setItem("userEmail", result.data[0].email)
       setTimeout(()=>{
-        localStorage.setItem("token", result.data[0].token)
-        // localStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb250YWN0LWFwaSIsInN1YiI6InRoZWFyY2theUBnbWFpbC5jb20iLCJleHAiOjE3NzA1OTk2MzR9.uLd1xoaeO7bLcJ67yp5cdBpB-BS7nTOfB_64QKR5ZXk")
-        console.log("esperando 2s e meio")
         navigate('/app/dashboard')
-      },2500)
+      },1000)
     }
     
     notifier(result)

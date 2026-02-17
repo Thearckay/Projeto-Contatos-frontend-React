@@ -47,6 +47,10 @@ const Dashboard = () => {
     })
   }
 
+  const [userJson, setUserJson] = useState({
+    userEmail: '',
+    userName: '',
+  })
 
   const handleOpenOrCloseNewContactModal = () => {
     console.log("Request para o backend feito")
@@ -56,17 +60,20 @@ const Dashboard = () => {
 
   const handleSendRequestBackend = async ()=> {
     const respData = await dashboardRequest()
+
     if(respData.status === "401") {
         setTimeout(()=> {
           localStorage.removeItem("token")
+          localStorage.removeItem('userName');
+          localStorage.removeItem('userEmail')
           navigate('/login')
         }, 1900)
         notifier(respData)
         return;
       }
 
-      localStorage.setItem("userName", respData.data[0].userName)
-      localStorage.setItem("userEmail", respData.data[0].userEmail)
+      // refazer isso aqui, o componente do sidebar é chamado antes das informações chegarem nele
+
       setTotalContacts(respData.data[0].totalContacts)
       setTotalFavoriteContacts(respData.data[0].totalFavorites)
       setTotalNewContacts(respData.data[0].newContactsThisMonth)
@@ -81,7 +88,7 @@ const Dashboard = () => {
 
   return (
     <div className='dashboard' id='dashboard'>
-      <Sidebar />
+      <Sidebar userJson={userJson} />
       <main className='dashboardMainSection'>
         <section className='dashboardSection'>
           <div className='dashboardHeaderDiv'>
